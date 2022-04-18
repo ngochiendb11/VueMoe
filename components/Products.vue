@@ -87,23 +87,18 @@
           <div class=" is-rounded is-small">
             <button
               :disabled="product.quantity <= 1 ? true : false"
-              class="button"
-              style="width: 10px; height: 10px"
+              class="button is-small"
               @click="decreaseItem(product)"
             >
               -
             </button>
             <input
-              class="input is-primary"
+              class="input is-outlined"
               type="text"
               :value="product.quantity"
-              style="width: 40px; height: 30px"
+              style="width: 40px ;height: 30px"
             />
-            <button
-              class="button"
-              style="width: 10px; height: 10px"
-              @click="increaseItem(product)"
-            >
+            <button class="button is-small" @click="increaseItem(product)">
               +
             </button>
           </div>

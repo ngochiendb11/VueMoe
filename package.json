@@ -1,7 +1,7 @@
 {
   "name": "vuemmerce",
   "version": "1.0.0",
-  "description": "Responsive ecommerce template built with Vue.js and Nuxt.js",
+  "description": "Moemoe",
   "author": "ivan lori <ivan.lori@protonmail.com>",
   "scripts": {
     "build": "nuxt generate",

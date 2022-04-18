@@ -6,7 +6,13 @@
           <h1 class="title is-3 is-flex-mobile"></h1>
         </nuxt-link>
 
-        <a role="button" class="navbar-burger burger" @click="isMenuOpen = !isMenuOpen" aria-label="menu" aria-expanded="false">
+        <a
+          role="button"
+          class="navbar-burger burger"
+          @click="isMenuOpen = !isMenuOpen"
+          aria-label="menu"
+          aria-expanded="false"
+        >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -19,7 +25,17 @@
             <VmSearch></VmSearch>
           </div>
         </div>
-
+        <div class="navMenu">
+          <a class="navbar-item field has-text-weight-semibold">
+            Home
+          </a>
+          <a class="navbar-item field has-text-weight-semibold">
+            Feature
+          </a>
+          <a class="navbar-item field has-text-weight-semibold">
+            Travel
+          </a>
+        </div>
         <div class="navbar-end">
           <div class="navbar-item social">
             <a href="#" class="icon" :title="facebookTooltip">
@@ -39,7 +55,9 @@
             <span class="icon">
               <i class="fa fa-shopping-cart"></i>
             </span>
-            <span :class="[numProductsAdded > 0 ? 'tag is-info' : '']">{{ numProductsAdded }}</span>
+            <span :class="[numProductsAdded > 0 ? 'tag is-info' : '']">{{
+              numProductsAdded
+            }}</span>
           </div>
         </div>
       </div>
@@ -58,54 +76,60 @@
 </template>
 
 <script>
-  import VmMenu from '../menu/Menu';
-  import VmSearch from '../search/Search';
+import VmMenu from "../menu/Menu";
+import VmSearch from "../search/Search";
 
-  export default {
-    name: 'VmHeader',
+export default {
+  name: "VmHeader",
 
-    data () {
-      return {
-        linkedinTooltip: 'Follow us on Linkedin',
-        facebookTooltip: 'Follow us on Facebook',
-        twitterTooltip: 'Follow us on Twitter',
-        instagramTooltip: 'Follow us on Instagram',
-        isCheckoutActive: false,
-        isMenuOpen: false
-      }
-    },
+  data() {
+    return {
+      linkedinTooltip: "Follow us on Linkedin",
+      facebookTooltip: "Follow us on Facebook",
+      twitterTooltip: "Follow us on Twitter",
+      instagramTooltip: "Follow us on Instagram",
+      isCheckoutActive: false,
+      isMenuOpen: false
+    };
+  },
 
-    components: {
-      VmSearch,
-      VmMenu
-    },
+  components: {
+    VmSearch,
+    VmMenu
+  },
 
-    computed: {
-      numProductsAdded () {
-        return this.$store.getters.productsAdded.length;
-      }
-    },
-
-    methods: {
-      showCheckoutModal () {
-        this.$store.commit('showCheckoutModal', true);
-      }
+  computed: {
+    numProductsAdded() {
+      return this.$store.getters.productsAdded.length;
     }
-  };
+  },
+
+  methods: {
+    showCheckoutModal() {
+      this.$store.commit("showCheckoutModal", true);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  .title {
-    background: url('../../static/vuemmerce-logo.png') no-repeat;
-    background-position: 50% 50%;
-    background-size: 165px;
-    width: 175px;
-    height: 35px;
-  }
-  .shopping-cart {
-    cursor: pointer;
-  }
-  a {
-    color: grey;
-  }
+.title {
+  background: url("../../static/vuemmerce-logo.png") no-repeat;
+  background-position: 50% 50%;
+  background-size: 165px;
+  width: 175px;
+  height: 35px;
+}
+.shopping-cart {
+  cursor: pointer;
+}
+a {
+  color: grey;
+}
+.navMenu {
+  display: flex;
+  align-items: start;
+  width: 300px;
+  justify-content: space-between;
+}
 </style>
