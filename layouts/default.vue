@@ -6,7 +6,7 @@
       <VmLoginModal></VmLoginModal>
       <VmRegistrationModal></VmRegistrationModal>
       <VmCheckoutModal></VmCheckoutModal>
-      <!-- <button @click="fetchListProduct()">Click here</button> -->
+  
      
     </main>
     <VmFooter></VmFooter>
