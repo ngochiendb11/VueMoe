@@ -2,7 +2,7 @@
   <div class="section">
     <div class="card is-clearfix columns">
       <figure class="card-image is-480x480 column is-one-thirds">
-        <img :src="product.src" alt="Placeholder image" />
+        <img :src="product.url" alt="Placeholder image" />
       </figure>
       <div class="card-content column is-two-thirds">
         <div class="card-content__title">
