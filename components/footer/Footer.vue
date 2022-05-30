@@ -2,11 +2,9 @@
   <div class="footer">
     <div class="columns container">
       <div class="column">
-        <p>Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.</p>
+        <p></p>
       </div>
-    <div class="column has-text-right">
-      <p>Vuemmerce | Made with ❤</p>
-    </div>
+   
     </div>
   </div>
 </template>
@@ -19,7 +17,8 @@ export default {
 
 <style lang="scss" scoped>
  .footer {
-   background: #b9e2fc;
+   background-image: url("https://i.pinimg.com/736x/4c/4c/7b/4c4c7b445aa6e3c36cf4361913e5cffe.jpg");
    color: black;
+   background-repeat: no-repeat;
  }
 </style>

@@ -6,6 +6,8 @@
       <VmLoginModal></VmLoginModal>
       <VmRegistrationModal></VmRegistrationModal>
       <VmCheckoutModal></VmCheckoutModal>
+      <!-- <button @click="fetchListProduct()">Click here</button> -->
+     
     </main>
     <VmFooter></VmFooter>
   </div>
@@ -19,13 +21,29 @@ import VmRegistrationModal from "@/components/modal/Registration";
 import VmCheckoutModal from "@/components/modal/Checkout";
 
 export default {
+  data() {
+    return {
+    
+    }
+  },
   components: {
     VmHeader,
     VmFooter,
     VmLoginModal,
     VmRegistrationModal,
     VmCheckoutModal
-  }
+  },
+  methods: {
+    // ...mapActions(['fetchlistproduct'])
+    fetchListProduct() {
+      this.$store.dispatch('fetchlistproduct')
+    }
+
+  },
+  beforeMount() {
+    this.fetchListProduct()
+  },
+
 };
 </script>
 

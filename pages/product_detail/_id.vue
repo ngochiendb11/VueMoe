@@ -37,12 +37,23 @@
             ad minim veniam, quis nostrud
           </p>
         </div>
-        <div class="card-content__ratings">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
+        <div class="star">
+          <div
+            class="card-content__ratings "
+            v-for="star in listStar"
+            :key="star"
+          >
+            <font-awesome-icon
+              v-show="isOneVote"
+              v-on:click="onClickStar(star)"
+              :icon="isOneVote ? faRegular : faGrinStars"
+            />
+            <font-awesome-icon
+              v-show="!isOneVote"
+              v-on:click="onClickGrinStar(star)"
+              icon="fa-solid fa-star"
+            />
+          </div>
         </div>
         <div class="card-content__reviews">
           <div class="is-pulled-left">
@@ -50,7 +61,7 @@
               <strong>{{
                 product.reviews > 0
                   ? `${product.reviews} Reviews`
-                  : "No reviews"
+                  : "no one review"
               }}</strong>
             </p>
           </div>
@@ -62,6 +73,7 @@
             >
               -
             </button>
+
             <input
               class="input is-outlined"
               type="text"
@@ -78,8 +90,10 @@
             ><strong>{{ product.price }}&euro;</strong></span
           >
         </div>
+
         <div class="card-content__btn is-pulled-right">
           <button
+            style="margin-bottom:20px"
             class="button is-primary"
             v-if="!isAddedBtn"
             @click="addToCart(product.id)"
@@ -94,14 +108,57 @@
             {{ removeFromCartLabel }}
           </button>
         </div>
-        <div class="control has-icons-left has-icons-right cmt-input">
-          <input class="input" type="text" placeholder="Comment here..." />
-          <span class="icon is-small is-left">
-            <i class="fa fa-commenting" aria-hidden="true"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-envelope"></i>
-          </span>
+        <form v-on:keyup.enter="submit" ref="formCmt">
+          <textarea
+            v-model="cmt"
+            id="confirmationText"
+            rows="10"
+            class="textarea is-primary has-fixed-size input-comment"
+            placeholder="Comment here..."
+          ></textarea>
+        </form>
+
+        <div class="commentLayout">
+          <img src="~/assets/moe/realpcy.jpeg" class="img-circle-small" />
+          <div style="padding:0px 15px 0px 5px; font-weight:700">
+            real_pcy
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud
+          </div>
+        </div>
+        <div class="commentLayout">
+          <img src="~/assets/moe/kimjuncotton.jpeg" class="img-circle-small" />
+          <div style="padding:0px 15px 0px 5px; font-weight:700">
+            kimjuncotton
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud
+          </div>
+        </div>
+        <div class="commentLayout">
+          <img src="~/assets/moe/oohsehun.jpeg" class="img-circle-small" />
+          <div style="padding:0px 15px 0px 5px; font-weight:700">
+            oohsehun
+          </div>
+          <div>
+            xinh đẹp tuyệt vời
+          </div>
+        </div>
+        <div v-for="comm in listComment" :key="comm">
+          <div class="commentLayout">
+            <img src="~/assets/moe/realpcy.jpeg" class="img-circle-small" />
+            <div style="padding:0px 15px 0px 5px; font-weight:700">
+              real__pcy
+            </div>
+            <div>
+              {{ comm }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -109,6 +166,26 @@
 </template>
 
 <script>
+import Vue from "vue";
+
+/* import the fontawesome core */
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+/* import specific icons */
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faGrinStars } from "@fortawesome/free-regular-svg-icons";
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/* add icons to the library */
+library.add(faStar, faGrinStars);
+
+/* add font awesome icon component */
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+
+Vue.config.productionTip = false;
+
 export default {
   name: "product_detail-id",
 
@@ -118,13 +195,17 @@ export default {
 
   data() {
     return {
+      faRegular:"fa-regular",
+      faGrinStars:"fa-grin-stars",
+      isOneVote: false,
       addToCartLabel: "Add to cart",
       removeFromCartLabel: "Remove from cart",
       addToFavouriteLabel: "Add to favourite",
       removeFromFavouriteLabel: "Remove from favourite",
       product: {},
       selected: 1,
-      quantityArray: []
+      quantityArray: [],
+      cmt: ""
     };
   },
 
@@ -140,10 +221,30 @@ export default {
   computed: {
     isAddedBtn() {
       return this.product.isAddedBtn;
+    },
+    listComment() {
+      return this.$store.state.listComment;
+    },
+    listStar() {
+      return this.$store.state.listStar;
     }
   },
 
   methods: {
+    onClickStar(item) {
+      this.isOneVote = !this.isOneVote;
+      this.
+      console.log(item)
+      
+    },
+    onClickGrinStar(item) {
+      this.isOneVote = !this.isOneVote;
+      console.log(item)
+    },
+    submit() {
+      this.$store.commit("getCommentList", this.cmt);
+      this.cmt = "";
+    },
     increaseItem(item) {
       let data = {
         id: item.id,
@@ -212,5 +313,26 @@ export default {
     width: 100%;
     margin-bottom: 10px;
   }
+}
+.commentLayout {
+  display: flex;
+  margin: 10px 0;
+}
+.star {
+  display: flex;
+}
+.img-circle-small {
+  width: 40px;
+  height: 37px;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  border: 2px solid #ccc;
+  margin-bottom: 2px;
+}
+.input-comment {
+  margin-top: 30px;
+  height: 70px;
 }
 </style>

@@ -5,6 +5,7 @@
     </div>
     <div class="section" v-if="products.length === 0">
       <p>{{ noProductLabel }}</p>
+     
     </div>
   </div>
 </template>

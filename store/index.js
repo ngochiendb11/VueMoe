@@ -1,122 +1,124 @@
+import { HTTP } from "../api/http-common";
+
 export const state = () => ({
   products: [
-    {
-      id: 1,
-      src: "moe1.jpg",
-      title: "Mòe 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 50,
-      ratings: 3,
-      reviews: 5,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 2,
-      src: "moe2.jpg",
-      title: "Mòe 2",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 35,
-      ratings: 5,
-      reviews: 10,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 3,
-      src: "moe3.jpg",
-      title: "Mòe 3",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 110,
-      ratings: 2,
-      reviews: 3,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 4,
-      title: "Mòe 4",
-      src: "moe4.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 50,
-      ratings: 1,
-      reviews: 0,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 5,
-      title: "Mòe 5",
-      src: "moe5.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 35,
-      ratings: 4,
-      reviews: 2,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 6,
-      title: "Mòe 6",
-      src: "moe6.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 110,
-      ratings: 5,
-      reviews: 1,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 7,
-      title: "Mòe 7",
-      src: "moe7.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 50,
-      ratings: 5,
-      reviews: 7,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 8,
-      title: "Mòe 8",
-      src: "moe8.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 35,
-      ratings: 3,
-      reviews: 0,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    },
-    {
-      id: 9,
-      title: "Mòe 9",
-      src: "moe9.png",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      price: 110,
-      ratings: 4,
-      reviews: 2,
-      isAddedToCart: false,
-      isAddedBtn: false,
-      isFavourite: false,
-      quantity: 1
-    }
+    // {
+    //   id: 1,
+    //   src: "moe1.jpg",
+    //   title: "Mòe 1",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 50,
+    //   ratings: 3,
+    //   reviews: 5,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 2,
+    //   src: "moe2.jpg",
+    //   title: "Mòe 2",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 35,
+    //   ratings: 5,
+    //   reviews: 10,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 3,
+    //   src: "moe3.jpg",
+    //   title: "Mòe 3",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 110,
+    //   ratings: 2,
+    //   reviews: 3,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 4,
+    //   title: "Mòe 4",
+    //   src: "moe4.jpg",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 50,
+    //   ratings: 1,
+    //   reviews: 0,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 5,
+    //   title: "Mòe 5",
+    //   src: "moe5.jpg",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 35,
+    //   ratings: 4,
+    //   reviews: 2,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 6,
+    //   title: "Mòe 6",
+    //   src: "moe6.jpg",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 110,
+    //   ratings: 5,
+    //   reviews: 1,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 7,
+    //   title: "Mòe 7",
+    //   src: "moe7.jpg",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 50,
+    //   ratings: 5,
+    //   reviews: 7,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 8,
+    //   title: "Mòe 8",
+    //   src: "moe8.jpg",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 35,
+    //   ratings: 3,
+    //   reviews: 0,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // },
+    // {
+    //   id: 9,
+    //   title: "Mòe 9",
+    //   src: "moe9.png",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    //   price: 110,
+    //   ratings: 4,
+    //   reviews: 2,
+    //   isAddedToCart: false,
+    //   isAddedBtn: false,
+    //   isFavourite: false,
+    //   quantity: 1
+    // }
   ],
   userInfo: {
     isLoggedIn: false,
@@ -130,7 +132,10 @@ export const state = () => ({
     openSignupModal: false,
     openCheckoutModal: false
   },
-  numOfItem: 0
+  listComment: [],
+  listStar: [0, 1, 2, 3, 4]
+
+
 });
 
 export const getters = {
@@ -167,16 +172,14 @@ export const getters = {
   },
   quantity: state => {
     return state.products.quantity;
-  }
+  },
+
 };
 
 export const mutations = {
-  // increaseItem: state => {
-  //   state.numOfItem++;
-  // },
-  // decreaseItem:state =>{
-
-  // }
+  getCommentList: (state, value) => {
+    state.listComment = [...state.listComment, value]
+  },
   addToCart: (state, id) => {
     state.products.forEach(el => {
       if (id === el.id) {
@@ -248,15 +251,16 @@ export const mutations = {
       }
     });
   },
-  SET_USER(state, authUser) {
-    state.authUser = authUser;
+  SET_LIST_PRODUCT(state, product) {
+    state.products = product;
   }
 };
-/* 
+
 export const actions = {
-  async nuxtServerInit({ commit }) {
-    const res = await this.$axios.get("/api/current_user")
-    commit("SET_USER", res.data)
+  async fetchlistproduct({ commit }) {
+    HTTP.get("/Moe-api").then(response => {
+      commit("SET_LIST_PRODUCT", response.data)
+    })
   },
 
   async logout({ commit }) {
@@ -268,4 +272,4 @@ export const actions = {
     const res = await this.$axios.post("/api/stripe", token)
     commit("SET_USER", res.data)
   }
-} */
+} 

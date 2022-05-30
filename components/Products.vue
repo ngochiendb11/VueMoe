@@ -3,7 +3,7 @@
     <div class="card-image">
       <figure class="image is-4by3">
         <img
-          :src="require(`@/assets/moe/${product.src}`)"
+          :src="product.url"
           alt="Placeholder image"
         />
       </figure>
