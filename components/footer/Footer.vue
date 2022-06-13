@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="columns container">
       <div class="column">
-        <p></p>
+        <p>phút tơ</p>
       </div>
    
     </div>
